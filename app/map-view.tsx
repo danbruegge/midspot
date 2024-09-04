@@ -127,8 +127,6 @@ export function MapView() {
     setLocation2(null);
   }
 
-  console.log("👾", data?.features);
-
   return (
     <div className="flex flex-col items-center gap-12">
       <div className="w-full flex flex-col sm:flex-row justify-evenly items-center gap-4 sm:gap-0">
