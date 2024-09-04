@@ -10,7 +10,12 @@ import {
   lineString as tLineString,
 } from "@turf/turf";
 import type { Feature, GeoJsonProperties, Point } from "geojson";
-import { EqualsIcon, MapPinIcon, XMarkIcon } from "@heroicons/react/20/solid";
+import {
+  EqualsIcon,
+  MapPinIcon,
+  NoSymbolIcon,
+  XMarkIcon,
+} from "@heroicons/react/20/solid";
 
 import { CenterCircle } from "./center-circle";
 import { Marker } from "./marker";
@@ -188,20 +193,28 @@ export function MapView() {
         </Map>
       </div>
       <ul className="w-[70vw] flex flex-wrap gap-4 justify-evenly">
-        {data?.features.map((feature: any) => (
-          <li
-            key={feature.geometry.coordinates.join(",")}
-            className="flex gap-4 items-center px-4 py-2 bg-white/10 text-white/90 rounded-xl border border-white/10"
-          >
-            <MapPinIcon className="size-6 text-primary" />
-            <span className="flex flex-col gap-0">
-              <span>{feature.properties.name}</span>
-              <span className="flex flex-row text-white/50 text-sm">
-                {feature.properties.place_formatted}
-              </span>
-            </span>
+        {data?.features.length > 0 && mapCenter
+          ? data?.features.map((feature: any) => (
+              <li
+                key={feature.geometry.coordinates.join(",")}
+                className="flex gap-4 items-center px-4 py-2 bg-white/10 text-white/90 rounded-xl border border-white/10"
+              >
+                <MapPinIcon className="size-6 text-primary" />
+                <span className="flex flex-col gap-0">
+                  <span>{feature.properties.name}</span>
+                  <span className="flex flex-row text-white/50 text-sm">
+                    {feature.properties.place_formatted}
+                  </span>
+                </span>
+              </li>
+            ))
+          : null}
+        {data && data.features.length === 0 ? (
+          <li className="flex gap-4 items-center px-4 py-2 bg-white/10 text-white/90 rounded-xl border border-white/10">
+            <NoSymbolIcon className="size-6 text-primary" />
+            <span>No locations found</span>
           </li>
-        ))}
+        ) : null}
       </ul>
       <button
         className="flex justify-center items-center gap-1 rounded-md bg-white/10 px-2.5 py-1.5 text-white shadow-sm hover:bg-primary/80"
