@@ -109,10 +109,12 @@ export function LocationSearch({
       <div className="flex items-center gap-2 mt-1 px-2.5 py-1.5 bg-white/10 rounded border-b border-white group-focus-within:border-primary">
         <input
           id={id}
-          disabled={hasSelected}
           type="text"
           placeholder={placeholder}
-          className="w-full bg-transparent focus:outline-none text-white disabled:text-white/50"
+          className={twMerge(
+            "w-full bg-transparent focus:outline-none",
+            hasSelected ? "text-white/50" : "text-white",
+          )}
           value={searchText}
           onChange={(event) => setSearchText(event.target.value)}
           onFocus={() => setHasFocus(true)}
