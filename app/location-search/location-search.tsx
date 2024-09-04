@@ -131,8 +131,8 @@ export function LocationSearch({
       </div>
       <ul
         className={twMerge(
-          "absolute w-full overflow-hidden bg-black/50 z-10 rounded-b-xl border border-t-0 border-white/30",
-          showSuggestions && hasFocus ? "h-auto" : "h-0", // necessary to get list element click events
+          "absolute w-full overflow-hidden bg-black/95 sm:bg-black/75 z-10 rounded-b-xl border border-t-0 border-white/30",
+          showSuggestions && hasFocus ? "h-auto" : "h-0 border-0", // necessary to get list element click events
         )}
       >
         {data?.features.map((feature: any) => (
