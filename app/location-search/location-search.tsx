@@ -77,6 +77,14 @@ export function LocationSearch({
     handleSelect(data?.features[0].properties);
   }
 
+  function handleBlur() {
+    setHasFocus(false);
+
+    if (data?.features) {
+      handleSelect(data?.features[0].properties);
+    }
+  }
+
   const handleCleanUp = useCallback(() => {
     selectItem(null);
     setSearchText("");
@@ -108,7 +116,7 @@ export function LocationSearch({
           value={searchText}
           onChange={(event) => setSearchText(event.target.value)}
           onFocus={() => setHasFocus(true)}
-          onBlur={() => setHasFocus(false)}
+          onBlur={handleBlur}
         />
         {searchText ? (
           <XMarkIcon
