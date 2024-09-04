@@ -33,7 +33,7 @@ export function LocationSearch({
   const [hasSelected, setHasSelected] = useState(false);
   const [hasFocus, setHasFocus] = useState(false);
 
-  const { isLoading, position, error, getPosition } = useGeolocation();
+  const { position, getPosition } = useGeolocation();
 
   useEffect(() => {
     getPosition();
@@ -42,22 +42,22 @@ export function LocationSearch({
   const apiParameter = [
     `q=${searchText}`,
     "autocomplete=false",
-    `proximity=${position?.lng},${position?.lat}`,
+    position ? `proximity=${position.lng},${position.lat}` : null,
     `access_token=${mapboxToken}`,
-  ].join("&");
+  ];
 
   const { data } = useQuery({
-    queryKey: ["search", apiParameter],
+    queryKey: ["search", searchText, position?.lat, position?.lng],
     queryFn: async ({ signal }) => {
       await sleep(300);
 
       if (!signal?.aborted) {
         return fetch(
-          `https://api.mapbox.com/search/geocode/v6/forward?${apiParameter}`,
+          `https://api.mapbox.com/search/geocode/v6/forward?${apiParameter.filter(Boolean).join("&")}`,
         ).then((res) => res.json());
       }
     },
-    enabled: !!searchText && !isLoading && !error,
+    enabled: !!searchText && searchText.length > 3,
   });
 
   useEffect(() => {
