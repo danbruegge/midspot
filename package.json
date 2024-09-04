@@ -1,5 +1,5 @@
 {
-  "name": "place-between",
+  "name": "places-between",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,11 +10,20 @@
     "format": "prettier --write ."
   },
   "dependencies": {
+    "@heroicons/react": "^2.1.5",
+    "@tanstack/react-query": "^5.52.2",
+    "@turf/turf": "^7.1.0",
+    "@types/geojson": "^7946.0.14",
+    "mapbox-gl": "^3.6.0",
     "next": "14.2.7",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-map-gl": "^7.1.7",
+    "tailwind-merge": "^2.5.2",
+    "uuid": "^10.0.0"
   },
   "devDependencies": {
+    "@tanstack/eslint-plugin-query": "^5.52.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
