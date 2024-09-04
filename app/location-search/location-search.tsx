@@ -37,7 +37,7 @@ export function LocationSearch({
 
   useEffect(() => {
     getPosition();
-  }, []);
+  }, [getPosition]);
 
   const apiParameter = [
     `q=${searchText}`,

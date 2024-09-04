@@ -1,6 +1,7 @@
 // Source: https://novajs.co/react-hook-geolocation
+//  - added useCallback to getPosition
 
-import { useState } from "react";
+import { useCallback, useState } from "react";
 
 interface Payload {
   lat: number;
@@ -12,7 +13,7 @@ export function useGeolocation(defaultPosition: Payload | null = null) {
   const [position, setPosition] = useState<Payload | null>(defaultPosition);
   const [error, setError] = useState<string | null>(null);
 
-  function getPosition(): void {
+  const getPosition = useCallback((): void => {
     if (!navigator.geolocation)
       return setError("Your browser does not support geolocation");
 
@@ -30,7 +31,7 @@ export function useGeolocation(defaultPosition: Payload | null = null) {
         setIsLoading(false);
       },
     );
-  }
+  }, []);
 
-  return { isLoading, position, error, getPosition };
+  return { isLoading, position, error, getPosition } as const;
 }
