@@ -1,7 +1,8 @@
 import { Layer, Source } from "react-map-gl";
-import { lineString as tLineString, length as tLength } from "@turf/turf";
 
 import { Marker } from "./marker";
+import { lineString as tLineString } from "@turf/helpers";
+import { length as tLength } from "@turf/length";
 
 export function CenterCircle({
   latitude,

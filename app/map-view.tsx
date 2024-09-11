@@ -3,12 +3,9 @@
 import { useEffect, useRef, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import Map, { type MapRef } from "react-map-gl";
-import {
-  point as tPoint,
-  midpoint as tMidpoint,
-  bbox as tBbox,
-  lineString as tLineString,
-} from "@turf/turf";
+import { bbox as tBbox } from "@turf/bbox";
+import { midpoint as tMidpoint } from "@turf/midpoint";
+import { point as tPoint, lineString as tLineString } from "@turf/helpers";
 import type { Feature, GeoJsonProperties, Point } from "geojson";
 import {
   EqualsIcon,
