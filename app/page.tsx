@@ -17,7 +17,7 @@ export default function Home() {
         </h1>
         <p className="text-right">to meet!</p>
       </header>
-      <main className="">
+      <main>
         <QueryClientProvider client={queryClient}>
           <MapView />
         </QueryClientProvider>
