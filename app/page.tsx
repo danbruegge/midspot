@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <div className="flex min-h-screen flex-col items-center py-24 md:px-24 gap-12">
       <header>
-        <p>Let's find a</p>
+        <p>Let&apos;s find a</p>
         <h1 className="mx-2 text-4xl text-primary font-bold italic text-center">
           Midspot
         </h1>
