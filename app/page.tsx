@@ -11,7 +11,11 @@ export default function Home() {
   return (
     <div className="flex min-h-screen flex-col items-center py-24 md:px-24 gap-12">
       <header>
-        <h1 className="text-4xl font-bold text-center">Places Between</h1>
+        <p>Let's find a</p>
+        <h1 className="mx-2 text-4xl text-primary font-bold italic text-center">
+          Midspot
+        </h1>
+        <p className="text-right">to meet!</p>
       </header>
       <main className="">
         <QueryClientProvider client={queryClient}>
@@ -30,7 +34,7 @@ export default function Home() {
         </p>
         <p>
           <a
-            href="https://github.com/danbruegge/places-between"
+            href="https://github.com/danbruegge/midspot"
             className="flex gap-2 items-center text-sm hover:text-primary"
           >
             <CodeBracketIcon className="size-5" />
