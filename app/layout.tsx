@@ -4,7 +4,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Midspot",
-  description: "Let's find a midspot to meet!",
+  description: "Let&apos;s find a midspot to meet!",
 };
 
 export default function RootLayout({
